@@ -1,11 +1,25 @@
-const express = require('express');
-const server = express();
+const db = require('./db/dbFunctions');
 
-server.get('/',(req, res) => {
-    res.send('Hello World');
+db.getDishes() 
+    .then(dishes => {
+        console.log("Dishes: ", dishes);
 
-});
+    });
 
+db.addDish("Cookies")
+    .then(id => {
+        console.log('Id of added dish ', id);
+    })
+    .catch(err => {
+        console.error(err);
 
+    });
+db.getDish(1)
+    .then(reponse => {
+        console.log('getDish response ', response);
+    })
+    .catch(err => {
+        console.error(err);
 
-server.listen(8000, () => console.log("API running on port 8000"));
+    });
+
