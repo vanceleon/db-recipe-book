@@ -15,4 +15,7 @@ function getDishes() {
     return db('dishes');
 }
 
-// function get
+function addDish(name) {
+    return db('dishes')
+        .insert({name})
+}
